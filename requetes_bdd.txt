@@ -1,0 +1,48 @@
+Les requêtes suivantes ont été saisies dans les différentes bases de données pour obtenir les listes de publications par année :
+
+Web of Science
+Chercher en "Organization enhanced" et trouver le nom de son établissement dans l'index (exemple : Institut National de la Santé et de la Recherche Médicale)
+Year Published : ex: 2016
+Custom year range : faire les extractions année par année. Commencer par "2016-2016"
+Mode de récupération des données : depuis la liste de résultats, extraire en tab-delimited Win qui produit un document txt. 
+Filtrer sur Articles : extraction en tab-delimited file, choisir 1->1000 puis 1001->2000 etc..., nommer à la suite wos1_inserm_YYYY.txt, wos2_inserm_YYYY.txt, etc...
+On a plusieurs fichiers (nombreux exports) : il faut agréger les données.
+Une fois complété avec toutes les données, enregistrer le fichier wos_inserm_YYYY.txt dans "Data > raw > YYYY"
+
+
+PubMed
+Sauvegarder tous les résultats au format CSV
+Extraire année par année
+
+Détail de l'extraction pour l'Inserm :
+(("INSERM"[Affiliation] OR "Inserm"[Affiliation] 
+OR "inserm"[Affiliation] OR "Institut National de la Santé et de la Recherche Médicale"[Affiliation] 
+OR "National Institute of Health and Medical Research"[Affiliation]) AND "2016"[Date - Publication] : "2016"[Date - Publication])
++ filtre : Journal Article.
+
+
+HAL-INSERM
+(Dans HAL, faire une recherche avancée avec comme champs de recherche :
+-> inserm dans Structure multicritère
+-> 2016 dans Date de publication (année)
+Lancer la recherche
+Filtrer ensuite sur Documents. --> ne peut extraire que 1000 références.
+
+Cliquer sur "OUtils" puis "Export avancé"
+Dans la liste des champs sélectionnés pour l'export, ne garder que identifiant DOI.
+Cliquer sur préparer l'export, puis sur Télécharger l'export.
+Renommer le fichier hal_inserm_2016.csv)
+
+Il vaut mieux passer par l'api...
+La requête est la suivante : 
+
+https://api.archives-ouvertes.fr/search/?q=structId_i:303623&fq=publicationDate_s:[2019-01-01 TO 2019-12-31]&fq=submitType_s:file&fq=doiId_s:["" TO *]&fl=doiId_s&rows=10000&wt=xml
+pour vérifier le nombre de résultats et adapter le nombre de rows pour le téléchargement en csv.
+
+
+Requête finale :
+
+https://api.archives-ouvertes.fr/search/?q=structId_i:303623&fq=publicationDate_s:[2019-01-01 TO 2019-12-31]&fq=submitType_s:file&fq=doiId_s:["" TO *]&fl=doiId_s&rows=5000&wt=csv
+
+On obtient un fichier sans extension qu'il faut renommer en hal_inserm_2019.csv
+Il faut ensuite ouvrir le fichier et renommer l'entête du champ unique "doi" et enregistrer.

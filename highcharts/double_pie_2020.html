@@ -1,0 +1,227 @@
+<html>
+<head>
+<style type="text/css">
+.highcharts-figure,
+.highcharts-data-table table {
+  min-width: 320px;
+  max-width: 660px;
+  margin: 1em auto;
+}
+
+.highcharts-data-table table {
+  font-family: Verdana, sans-serif;
+  border-collapse: collapse;
+  border: 1px solid #ebebeb;
+  margin: 10px auto;
+  text-align: center;
+  width: 100%;
+  max-width: 500px;
+}
+
+.highcharts-data-table caption {
+  padding: 1em 0;
+  font-size: 1.2em;
+  color: #555;
+}
+
+.highcharts-data-table th {
+  font-weight: 600;
+  padding: 0.5em;
+}
+
+.highcharts-data-table td,
+.highcharts-data-table th,
+.highcharts-data-table caption {
+  padding: 0.5em;
+}
+
+.highcharts-data-table thead tr,
+.highcharts-data-table tr:nth-child(even) {
+  background: #f8f8f8;
+}
+
+.highcharts-data-table tr:hover {
+  background: #f1f7ff;
+}
+</style>
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+</head>
+
+
+
+
+<body>
+<figure class="highcharts-figure">
+  <div id="container"></div>
+  <p class="highcharts-description" style="display:none;">
+    In Highcharts, pies can also be hollow, in which case they are commonly
+    referred to as donut charts. This pie also has an inner chart, resulting
+    in a hierarchical type of visualization. 
+  </p>
+</figure>
+</body>
+
+<script type="text/javascript">
+var colors = Highcharts.getOptions().colors,
+  categories = [
+    "Acces fermé",
+    "Gold",
+    "Libre éditeur",
+    "Archives Ouvertes"
+  ],
+  data = [
+    {
+      y: 24.6,
+      color: colors[8],
+      drilldown: {
+        name: 'Accès fermé',
+        categories: [
+          'Accès fermé'
+        ],
+        data: [
+  24.6
+        ]
+      }
+    },
+    {
+       y: 32.1,
+      color: colors[6],
+      drilldown: {
+        name: 'Gold',
+        categories: [
+          'Gold',
+          'Gold en Archives ouvertes'
+        ],
+        data: [
+          0.4,
+          31.7
+        ]
+      }
+    },
+    {
+       y: 29.8,
+      color: colors[0],
+      drilldown: {
+        name: 'Libre éditeur',
+        categories: [
+          'Libre éditeur en Archives ouvertes',
+          'Libre éditeur'
+        ],
+        data: [
+          10.8,
+          19
+        ]
+      }
+    },
+    {
+      y: 13.5,
+      color: colors[2],
+      drilldown: {
+        name: 'Archives ouvertes',
+        categories: [
+          'Archives ouvertes'
+        ],
+        data: [
+          13.5
+        ]
+      }
+    }
+  ],
+  browserData = [],
+  versionsData = [],
+  i,
+  j,
+  dataLen = data.length,
+  drillDataLen,
+  brightness;
+
+
+// Build the data arrays
+for (i = 0; i < dataLen; i += 1) {
+
+  // add browser data
+  browserData.push({
+    name: categories[i],
+    y: data[i].y,
+    color: data[i].color
+  });
+
+  // add version data
+  drillDataLen = data[i].drilldown.data.length;
+  for (j = 0; j < drillDataLen; j += 1) {
+    brightness = 0.2 - (j / drillDataLen) / 5;
+    versionsData.push({
+      name: data[i].drilldown.categories[j],
+      y: data[i].drilldown.data[j],
+      color: Highcharts.color(data[i].color).brighten(brightness).get()
+    });
+  }
+}
+
+// Create the chart
+Highcharts.chart('container', {
+  chart: {
+    type: 'pie'
+  },
+  title: {
+    text: ''
+  },
+  subtitle: {
+    text: ''
+  },
+  plotOptions: {
+    pie: {
+      shadow: false,
+      center: ['50%', '50%']
+    }
+  },
+  tooltip: {
+    valueSuffix: '%'
+  },
+  series: [{
+    name:'',
+    data: browserData,
+    size: '60%',
+    dataLabels: {
+      formatter: function () {
+        return this.y > 5 ? this.point.name : null;
+      },
+      color: '#000000',
+      distance: -30
+    }
+  }, {
+    name: '',
+    data: versionsData,
+    size: '80%',
+    innerSize: '60%',
+    dataLabels: {
+      formatter: function () {
+        // display only if larger than 1
+        return this.y > 0.3 ? '<b>' + this.point.name + ':</b> ' +
+          this.y + '%' : null;
+      }
+    },
+    id: 'versions'
+  }],
+  responsive: {
+    rules: [{
+      condition: {
+        maxWidth: 400
+      },
+      chartOptions: {
+        series: [{
+        }, {
+          id: 'versions',
+          dataLabels: {
+            enabled: false
+          }
+        }]
+      }
+    }]
+  }
+});
+</script>
+</html>

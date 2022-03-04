@@ -1,0 +1,148 @@
+<html>
+<head>
+<style type="text/css">
+#container {
+  height: 400px;
+}
+
+.highcharts-figure,
+.highcharts-data-table table {
+  min-width: 310px;
+  max-width: 800px;
+  margin: 1em auto;
+}
+
+#datatable {
+  font-family: Verdana, sans-serif;
+  border-collapse: collapse;
+  border: 1px solid #ebebeb;
+  margin: 10px auto;
+  text-align: center;
+  width: 100%;
+  max-width: 500px;
+}
+
+#datatable caption {
+  padding: 1em 0;
+  font-size: 1.2em;
+  color: #555;
+}
+
+#datatable th {
+  font-weight: 600;
+  padding: 0.5em;
+}
+
+#datatable td,
+#datatable th,
+#datatable caption {
+  padding: 0.5em;
+}
+
+#datatable thead tr,
+#datatable tr:nth-child(even) {
+  background: #f8f8f8;
+}
+
+#datatable tr:hover {
+  background: #f1f7ff;
+}
+</style>
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/data.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+</head>
+
+<body>
+<figure class="highcharts-figure">
+  <div id="container"></div>
+  <p class="highcharts-description" style="display:none;">
+    Chart showing how an HTML table can be used as the data source for the
+    chart using the Highcharts data module. The chart is built by
+    referencing the existing HTML data table in the page. Several common
+    data source types are available, including CSV and Google Spreadsheet.
+  </p>
+
+  <table id="datatable" style="display:none;">
+    <thead>
+      <tr>
+        <th></th>
+        <th>bioRxiv</th>
+        <th>medRxiv</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>2014</th>
+        <td>6</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <th>2015</th>
+        <td>23</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <th>2016</th>
+        <td>102</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <th>2017</th>
+        <td>271</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <th>2018</th>
+        <td>594</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <th>2019</th>
+        <td>803</td>
+        <td>23</td>
+      </tr>
+      <tr>
+        <th>2020</th>
+        <td>1072</td>
+        <td>305</td>
+      </tr>
+      <tr>
+        <th>2021</th>
+        <td>1020</td>
+        <td>307</td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+</body>
+
+<script type="text/javascript">
+Highcharts.chart('container', {
+  data: {
+    table: 'datatable'
+  },
+  chart: {
+    type: 'column'
+  },
+  title: {
+    text: ''
+  },
+  yAxis: {
+    allowDecimals: false,
+    title: {
+      text: 'Nombre de dépots'
+    }
+  },
+  tooltip: {
+    formatter: function () {
+      return '<b>' + this.series.name + '</b><br/>' +
+        this.point.y + ' dépots';
+    }
+  }
+});
+</script>
+</html>
