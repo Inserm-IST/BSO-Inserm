@@ -36,7 +36,7 @@ Il faut également effacer le contenu du dossier 'outputs' pour enlever les él�
 Ce projet a été réalisé par le DISC-IST, avec l'aide du MESRI.
 - Michel Pohl: Directeur adjoint du service de l'Information Scientifique et Technique de l'Inserm
 - Nathalie Duchange: Responsable du projet
-- Anna Marennelly: Co-Responsable informatique du projet
+- Anna Marenelly: Co-Responsable informatique du projet
 - Christine Dupuis: Soutien documentaire
 - Juliette Janes: Soutien informatique
 
