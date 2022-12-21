@@ -38,7 +38,7 @@ Ce projet a été réalisé par le DISC-IST, avec l'aide du MESRI.
 - Nathalie Duchange: Responsable du projet
 - Anna Marenelly: Co-Responsable informatique du projet
 - Christine Dupuis: Soutien documentaire
-- Juliette Janes: Soutien informatique
+- Juliette Janes, Julien Bacquart: Soutien informatique
 
 ## Conditions d'utilisation
 ![68747470733a2f2f692e6372656174697665636f6d6d6f6e732e6f72672f6c2f62792f322e302f38387833312e706e67](https://user-images.githubusercontent.com/56683417/115525743-a78d2400-a28f-11eb-8e45-4b6e3265a527.png)
