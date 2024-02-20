@@ -1,9 +1,7 @@
-# Baromètre de la Science Ouverte Inserm
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gl/Cthulhus_Queen%2Fbarometre_scienceouverte_universitedelorraine/master?filepath=barometre_universite_lorraine.ipynb)
 
 
 Travail inspiré du Baromètre français de la Science Ouverte : https://ministeresuprecherche.github.io/bso/ et du Baromètre Lorrain de la Science Ouverte : https://gitlab.com/Cthulhus_Queen/barometre_scienceouverte_universitedelorraine.
-
-## Guide d'utilisation
 
 1) Téléchargez l'ensemble du Baromètre Inserm sur le bureau en utilisant le bouton "Download". Dé-zippez l'archive.
 
@@ -31,20 +29,5 @@ Il faut également effacer le contenu du dossier 'outputs' pour enlever les él�
 11) Les graphiques ont ensuite été codés en HTML grâce à Highcharts. Les pages réalisées pour le baromètre Inserm sont disponibles dans le répertoire 'highcharts' de ce dossier.
 
 12) Pour ce qui est des autres visualisations, ils correspondent à la déclinaison locale du BSO national et ont été mis au point par le MESRI. Le code est disponible via le lien suivant : https://github.com/orgs/dataesr/repositories?q=bso&type=&language=&sort=
-
-## Crédits
-Ce projet a été réalisé par le DISC-IST, avec l'aide du MESRI.
-- Michel Pohl: Directeur adjoint du service de l'Information Scientifique et Technique de l'Inserm
-- Nathalie Duchange: Responsable du projet
-- Anna Marenelly: Co-Responsable informatique du projet
-- Christine Dupuis: Soutien documentaire
-- Juliette Janes, Julien Bacquart: Soutien informatique
-
-## Conditions d'utilisation
-![68747470733a2f2f692e6372656174697665636f6d6d6f6e732e6f72672f6c2f62792f322e302f38387833312e706e67](https://user-images.githubusercontent.com/56683417/115525743-a78d2400-a28f-11eb-8e45-4b6e3265a527.png)
-
-## Contacts
-Pour toute question, contactez anna.marenelly@inserm.fr et juliette.janes@inserm.fr
-
 
  
