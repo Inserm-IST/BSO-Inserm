@@ -1,4 +1,7 @@
+highcharts-core
 matplotlib
+notebook
 numpy
 openpyxl
 pandas
+plotly
