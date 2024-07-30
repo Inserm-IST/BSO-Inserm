@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <div id="container"></div>
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+<script>document.addEventListener('DOMContentLoaded', function() {
+Highcharts.chart('container',
+{
+  chart: {
+  height: 500,
+  type: 'bar',
+  width: 850
+},
+  colors: ['#CD7F32',
+'#E6AB19',
+'gold',
+'#4CAF50',
+'tomato'],
+  credits: {
+  enabled: false
+},
+  legend: {
+  reversed: true
+},
+  plotOptions: {
+  bar: {
+  groupPadding: 0.05,
+  stacking: 'percent',
+  dataLabels: {
+  enabled: true,
+  format: '{point.percentage:.0f}%'
+},
+  events: {
+  legendItemClick: function() {
+return false}
+},
+  stickyTracking: false,
+  type: 'bar'
+}
+},
+  series: [{
+  data: [[1021],
+[424],
+[19],
+[8],
+[18],
+[10],
+[5],
+[15],
+[9],
+[7]],
+  name: 'Bronze',
+  type: 'bar'
+},
+{
+  data: [[2556],
+[1537],
+[127],
+[97],
+[67],
+[77],
+[61],
+[69],
+[42],
+[20]],
+  name: 'Hybrid',
+  type: 'bar'
+},
+{
+  data: [[3721],
+[3156],
+[172],
+[150],
+[79],
+[88],
+[84],
+[94],
+[47],
+[27]],
+  name: 'Gold',
+  type: 'bar'
+},
+{
+  data: [[1180],
+[1032],
+[146],
+[146],
+[88],
+[61],
+[97],
+[66],
+[27],
+[35]],
+  name: 'Green',
+  type: 'bar'
+},
+{
+  data: [[2660],
+[1019],
+[71],
+[59],
+[43],
+[53],
+[41],
+[23],
+[43],
+[9]],
+  name: 'Accès fermé',
+  type: 'bar'
+}],
+  subtitle: {
+  text: '2022'
+},
+  title: {
+  text: 'Statut OpenAccess par discipline'
+},
+  tooltip: {
+  pointFormat: '<span style="color:{point.color}">●</span> {series.name}: <b>{point.y}</b> ({point.percentage:.0f}%)<br/>',
+  shared: true
+},
+  xAxis: {
+  lineWidth: 0,
+  categories: ['Sciences médicales',
+'Biologie (fond.)',
+'Sciences de l\'Ingénieur',
+'Chimie',
+'Informatique',
+'Humanités',
+'Sciences physiques, astronomie',
+'Sciences de la Terre, Ecologie, Energie et Biologie appliquée',
+'Sciences sociales',
+'Mathématiques']
+},
+  yAxis: {
+  stackLabels: {
+  crop: false,
+  enabled: true,
+  x: 10
+},
+  labels: {
+  enabled: false
+},
+  title: {
+  text: 'Pourcentage'
+}
+}
+},
+);
+});</script>
+</body>
+
+</html>
